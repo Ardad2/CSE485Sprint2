@@ -1,9 +1,9 @@
-# CSE485 Sprint 1 
+# CSE485 Sprint 2
 
 ## Product Backlogs
 
-1. Local storage for the user behaviors (DONE)
-2. Detail screen for every behavior after tapping on it (DONE) 
-3. List of predfined behaviors for the user to pick from the KARE model (DONE)
-4. A form for creating behaviors along with details (DONE)
-5. List of behaviors on the home screen with dates and icons. (DONE, work on ICONS later)
+1. Users are able to register and log into accounts.
+2. Each user has a separate behavior data associated with their registered account. 
+3. Behavior items listed on the screen display their measurment values and are sorted according to their dates.
+4. Whenever creating a new behavior, the user can specify the name, icon, description of the behavior, and also the measurments
+5. The behavior detail screen should be more detailed and allow the user to change the measurments
