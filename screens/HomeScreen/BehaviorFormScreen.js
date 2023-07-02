@@ -27,12 +27,26 @@ export default function BehaviorFormScreen( {route, navigation} )
     const [enteredGoalCount, setEnteredGoalCount] = useState('');
     const [type, setType] = useState(behaviorName)
 
-    function behaviorInputHandler(enteredText) {
-      setEnteredName(enteredText);
-      setEnteredIcon(enteredIcon);
-      setEnteredGoalCount(enteredGoalCount);
-      setType(type);
+    function nameInputHandler(enteredName) {
+
+      setEnteredName(enteredName);
+    
       };
+
+    function iconInputHandler(enteredIcon) {
+
+  
+        setEnteredIcon(enteredIcon);
+  
+      
+        };
+
+      function goalCountInputHandler(enteredGoalCount) {
+
+    
+          setEnteredGoalCount(enteredGoalCount);
+        
+          };
 
  
       function addBehaviorHandler() {
@@ -65,7 +79,7 @@ export default function BehaviorFormScreen( {route, navigation} )
         placeholder={behaviorName}
         defaultValue={behaviorName}
 
-         onChangeText={behaviorInputHandler}
+         onChangeText={nameInputHandler}
          value={enteredName}
          />)
          }
@@ -79,21 +93,21 @@ export default function BehaviorFormScreen( {route, navigation} )
         placeholder={behaviorName}
         defaultValue={behaviorName}
 
-         onChangeText={behaviorInputHandler}
+         onChangeText={nameInputHandler}
          value={enteredName}
          />
          <Text style ={styles.textStyle}>Icon and Color</Text>
          <TextInput 
         style={styles.textInput} 
 
-         onChangeText={behaviorInputHandler}
+        onChangeText={iconInputHandler}
          value={enteredIcon}
          />
          <Text style ={styles.textStyle}>Goal and Goal Period</Text>
          <TextInput 
         style={styles.textInput} 
 
-         onChangeText={behaviorInputHandler}
+        onChangeText={goalCountInputHandler}
          value={enteredGoalCount}
          />
 
