@@ -7,7 +7,7 @@ function BehaviorItem(props) {
     const navigation = useNavigation();
 
     function pressHandler() {
-      props.onPress(props.text, props.date, props.icon)
+      props.onPress(props.name, props.date, props.icon)
     }
     
 
@@ -18,8 +18,10 @@ function BehaviorItem(props) {
         onPress={pressHandler}
         style={({pressed}) => pressed && styles.pressedItem}
         > 
-        <Text style={styles.behaviorText}>{props.text}</Text>
+        <View> 
+        <Text style={styles.behaviorText}>{props.name} {props.count}/{props.goalCount}</Text>
         <Text style={styles.behaviorText}>{props.date}</Text>
+        </View>
         </Pressable>
         </View>
     );

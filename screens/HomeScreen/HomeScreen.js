@@ -85,10 +85,17 @@ export default function HomeScreen({navigation}) {
       <View style={styles.behaviorsContainer}>
         <FlatList data={behaviorList} renderItem = {itemData => {
           return <BehaviorItem 
-          text={itemData.item.text} 
+
           id = {itemData.item.id}
-          date={itemData.item.date}
+          name = {itemData.item.name}
           icon={itemData.item.icon}
+          count={itemData.item.count}
+          goalCount={itemData.item.goalCount}
+          memo={itemData.item.memo}
+          date={itemData.item.date}
+          type={itemData.item.type}
+
+
           onDeleteItem={deleteBehaviorHandler}
           onPress={pressHandler}
           />

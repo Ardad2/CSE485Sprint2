@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TextInput, Button, Modal, Image} from 'react-na
 import { useNavigation } from '@react-navigation/native';
 import { useSelector, dispatch , useDispatch} from 'react-redux';
 import { addBehavior, removeBehavior } from '../../store/redux/behaviors';
+import { set } from 'react-native-reanimated';
 
 
 export default function BehaviorFormScreen( {route, navigation} )
@@ -21,26 +22,30 @@ export default function BehaviorFormScreen( {route, navigation} )
 
         const behaviorName = route.params.behaviorName;
 
-    const [enteredBehaviorText, setEnteredBehaviorText] = useState('');
+    const [enteredName, setEnteredName] = useState(behaviorName);
+    const [enteredIcon, setEnteredIcon] = useState('');
+    const [enteredGoalCount, setEnteredGoalCount] = useState('');
+    const [type, setType] = useState(behaviorName)
 
     function behaviorInputHandler(enteredText) {
-        setEnteredBehaviorText(enteredText);
+      setEnteredName(enteredText);
+      setEnteredIcon(enteredIcon);
+      setEnteredGoalCount(enteredGoalCount);
+      setType(type);
       };
 
-    /*  function addBehaviorHandler(enteredBehaviorText) {
-        setCourseBehaviors(currentCourseBehaviors => [...currentCourseBehaviors, {text: enteredBehaviorText, id: Math.random().toString(), date: date, icon: "Hello"}       ]);
-      endAddBehaviorHandler();
-      }*/
-
+ 
       function addBehaviorHandler() {
-        //  route.params.onAddBehavior(enteredBehaviorText);
-         // setEnteredBehaviorText('');
          dispatch(addBehavior(
            {
              id: Math.random().toString(),
-             text: enteredBehaviorText,
+             name: enteredName,
+             icon: enteredIcon,
+             count: 0,
+             goalCount: enteredGoalCount,
+             memo: "",
              date: date,
-             icon: "Hello"
+             type: type
            }
          ));
 
@@ -54,45 +59,42 @@ export default function BehaviorFormScreen( {route, navigation} )
 
     return (
         <View style ={styles.inputContainer}>
+          <Text style ={styles.textStyle}>Name</Text>
          { (behaviorName == "New") && (<TextInput 
         style={styles.textInput} 
         placeholder={behaviorName}
         defaultValue={behaviorName}
 
          onChangeText={behaviorInputHandler}
-         value={enteredBehaviorText}
+         value={enteredName}
          />)
          }
         { (behaviorName != "New") && (
           <Text>{behaviorName}</Text>
          ) }
         
-        <Text>Note</Text>
+        <Text style ={styles.textStyle}>Note</Text>
         <TextInput 
         style={styles.textInput} 
         placeholder={behaviorName}
         defaultValue={behaviorName}
 
          onChangeText={behaviorInputHandler}
-         value={enteredBehaviorText}
+         value={enteredName}
          />
-         <Text>Icon and Color</Text>
+         <Text style ={styles.textStyle}>Icon and Color</Text>
          <TextInput 
         style={styles.textInput} 
-        placeholder={behaviorName}
-        defaultValue={behaviorName}
 
          onChangeText={behaviorInputHandler}
-         value={enteredBehaviorText}
+         value={enteredIcon}
          />
-         <Text>Gaol and Goal Period</Text>
+         <Text style ={styles.textStyle}>Goal and Goal Period</Text>
          <TextInput 
         style={styles.textInput} 
-        placeholder={behaviorName}
-        defaultValue={behaviorName}
 
          onChangeText={behaviorInputHandler}
-         value={enteredBehaviorText}
+         value={enteredGoalCount}
          />
 
 
@@ -109,32 +111,30 @@ export default function BehaviorFormScreen( {route, navigation} )
 const styles = StyleSheet.create({
     inputContainer: {
       flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
       padding: 16,
       backgroundColor: 'white'
     },
-    image: {
-        width: 100,
-        height: 100,
-        margin: 20
-    },
     textInput: {
       borderWidth: 1,
-      borderColor: '#e4d0ff',
-      backgroundColor: '#e4d0ff',
+      borderColor: '#F0F0F0',
+      backgroundColor: '#F0F0F0',
       color: '#120438',
       borderRadius: 6,
       width: '100%',
-      padding: 16
+      padding: 8
     },
     buttonContainer: {
         marginTop: 16,
+        backgroundColor: '#F0F0F0',
         flexDirection: "row",
     },
     button: {
         width: 100,
         marginHorizontal: 8
+    },
+    textStyle: {
+      fontWeight: 'bold',
+      padding: 10
     }
   });
   
