@@ -66,6 +66,10 @@ export default function BehaviorFormScreen( {route, navigation} )
         { (behaviorName != "New") && (
           <Text>{behaviorName}</Text>
          ) }
+        
+        <Text>Note</Text>
+         <Text>Icon and Color</Text>
+         <Text>Gaol and Goal Period</Text>
 
 
 
