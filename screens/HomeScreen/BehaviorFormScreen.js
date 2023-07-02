@@ -68,9 +68,32 @@ export default function BehaviorFormScreen( {route, navigation} )
          ) }
         
         <Text>Note</Text>
-         <Text>Icon and Color</Text>
-         <Text>Gaol and Goal Period</Text>
+        <TextInput 
+        style={styles.textInput} 
+        placeholder={behaviorName}
+        defaultValue={behaviorName}
 
+         onChangeText={behaviorInputHandler}
+         value={enteredBehaviorText}
+         />
+         <Text>Icon and Color</Text>
+         <TextInput 
+        style={styles.textInput} 
+        placeholder={behaviorName}
+        defaultValue={behaviorName}
+
+         onChangeText={behaviorInputHandler}
+         value={enteredBehaviorText}
+         />
+         <Text>Gaol and Goal Period</Text>
+         <TextInput 
+        style={styles.textInput} 
+        placeholder={behaviorName}
+        defaultValue={behaviorName}
+
+         onChangeText={behaviorInputHandler}
+         value={enteredBehaviorText}
+         />
 
 
          <View style={styles.buttonContainer}>
