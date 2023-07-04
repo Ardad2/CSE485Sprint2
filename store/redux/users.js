@@ -6,7 +6,17 @@ const usersSlice = createSlice({
         users: [ {
             id: 0,
             username: "John",
-            behaviors: []
+            behaviors: [
+                {id: 1,
+                name: "Hello",
+                icon: "TEST",
+                count: "Hello",
+                goalCount: "Hello",
+                memo: "Hello",
+                date: "Hello",
+                type: "Hello",
+                }
+            ]
         }
         ], 
     },
@@ -24,7 +34,7 @@ const usersSlice = createSlice({
         },
 
         addBehavior: (state, action) => {
-            state.users.indexOf(action.payload.userId).behaviors.push({
+            state.users[0].behaviors.push({
                 id: action.payload.id,
                 name: action.payload.name,
                 icon: action.payload.icon,

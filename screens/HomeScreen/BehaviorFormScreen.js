@@ -51,7 +51,7 @@ export default function BehaviorFormScreen( {route, navigation} )
 
  
       function addBehaviorHandler() {
-         dispatch(addBehavior(
+         /*dispatch(addBehavior(
            {
              id: Math.random().toString(),
              name: enteredName,
@@ -62,7 +62,7 @@ export default function BehaviorFormScreen( {route, navigation} )
              date: date,
              type: type
            }
-         ));
+         ));*/
 
 
          dispatch(addUserBehavior(

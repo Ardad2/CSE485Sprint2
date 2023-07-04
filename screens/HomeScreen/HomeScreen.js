@@ -21,8 +21,8 @@ const HomeStack = createStackNavigator();
 
 export default function HomeScreen({navigation}) {
 
-  //const behaviorList = useSelector((state) => state.behaviors.behaviors);
-  const behaviorList = useSelector( (state) => state.users.get(0).behaviors);
+//  const behaviorList = useSelector((state) => state.behaviors.behaviors);
+const behaviorList = useSelector( (state) => state.users.users[0].behaviors);
 
 
   const [ date, setDate ] = useState(null);
