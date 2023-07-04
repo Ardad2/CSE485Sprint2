@@ -7,15 +7,7 @@ const usersSlice = createSlice({
             id: 0,
             username: "John",
             behaviors: [
-                {id: 1,
-                name: "Hello",
-                icon: "TEST",
-                count: "Hello",
-                goalCount: "Hello",
-                memo: "Hello",
-                date: "Hello",
-                type: "Hello",
-                }
+
             ]
         }
         ], 
@@ -37,9 +29,9 @@ const usersSlice = createSlice({
 
             var index = 0;
 
-            for (var i = 0; i < state.users.length() ; i++)
-            {
-                if (users[i].username == (action.payload.username)) {
+            for (var i = 0; i < state.users.length ; i++)
+            {                
+                if (state.users[i].username == (action.payload.username)) {
                     index = i;
                 }
             }
