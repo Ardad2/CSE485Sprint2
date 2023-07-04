@@ -24,11 +24,15 @@ const usersSlice = createSlice({
         },
 
         addBehavior: (state, action) => {
-            state.users.indexOf(action.payloadId).behaviors.push({
-                text: action.payload.text,
-                id: action.payload.text,
-                date: action.payload.text,
-                icon: action.payload.icon
+            state.users.indexOf(action.payload.userId).behaviors.push({
+                id: action.payload.id,
+                name: action.payload.name,
+                icon: action.payload.icon,
+                count: action.payload.count,
+                goalCount: action.payload.goalCount,
+                memo: action.payload.memo,
+                date: action.payload.date,
+                type: action.payload.type,
             })
         },
     }
@@ -36,5 +40,6 @@ const usersSlice = createSlice({
 
 export const addUser = usersSlice.actions.addUser;
 export const removeUser = usersSlice.actions.removeUser;
+export const addUserBehavior = usersSlice.actions.addBehavior;
 export default usersSlice.reducer;
 

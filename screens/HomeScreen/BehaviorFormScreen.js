@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TextInput, Button, Modal, Image} from 'react-na
 import { useNavigation } from '@react-navigation/native';
 import { useSelector, dispatch , useDispatch} from 'react-redux';
 import { addBehavior, removeBehavior } from '../../store/redux/behaviors';
+import { addUserBehavior } from '../../store/redux/users';
 import { set } from 'react-native-reanimated';
 
 
@@ -62,6 +63,22 @@ export default function BehaviorFormScreen( {route, navigation} )
              type: type
            }
          ));
+
+
+         dispatch(addUserBehavior(
+          {
+            userId: 0,
+            id: Math.random().toString(),
+            name: enteredName,
+            icon: enteredIcon,
+            count: 0,
+            goalCount: enteredGoalCount,
+            memo: "",
+            date: date,
+            type: type
+          }
+        ));
+         
 
          navigation.navigate("HomeScreen");
 
