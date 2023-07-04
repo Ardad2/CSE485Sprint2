@@ -34,7 +34,7 @@ const usersSlice = createSlice({
         },
 
         addBehavior: (state, action) => {
-            state.users[0].behaviors.push({
+            state.behaviors.indexOf(action.payload.username).behaviors.push({
                 id: action.payload.id,
                 name: action.payload.name,
                 icon: action.payload.icon,

@@ -67,7 +67,7 @@ export default function BehaviorFormScreen( {route, navigation} )
 
          dispatch(addUserBehavior(
           {
-            userId: 0,
+            username: "John",
             id: Math.random().toString(),
             name: enteredName,
             icon: enteredIcon,
