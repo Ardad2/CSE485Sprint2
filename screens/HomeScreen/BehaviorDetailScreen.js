@@ -1,9 +1,15 @@
-import {View, Text, Button} from 'react-native'
+import {View, Text, Button, StyleSheet} from 'react-native'
 import { useNavigation } from '@react-navigation/native';
+import { useSelector, dispatch , useDispatch} from 'react-redux';
+import { incrementBehavior } from '../../store/redux/users';
 
 
 function BehaviorDetailScreen( {route, navigation} )
 {
+
+    const dispatch = useDispatch();
+
+
     const id = route.params.id;
     const name = route.params.name;
     const icon = route.params.icon;
@@ -13,6 +19,19 @@ function BehaviorDetailScreen( {route, navigation} )
     const date = route.params.date;
     const type = route.params.type;
 
+    function decrementGoalCount() {
+
+     }
+
+     function incrementGoalCount() {
+        dispatch(incrementBehavior(
+            {
+                username: "John",
+                behaviorName: name
+            }
+          ));
+    }
+
     return (
         <View> 
         <Text>{name}</Text>
@@ -20,11 +39,11 @@ function BehaviorDetailScreen( {route, navigation} )
 
         <View style={styles.buttonContainer}>
              <View style={styles.button} >
-                <Button title="+" onPress={addBehaviorHandler} color="black"/>
+                <Button title="+" onPress={incrementGoalCount} color="black"/>
             </View>
             <Text>{count} / {goalCount}</Text>
             <View style={styles.button} >
-                <Button title="-" onPress={addBehaviorHandler} color="black"/>
+                <Button title="-" onPress={decrementGoalCount} color="black"/>
             </View>
             </View>
         
@@ -49,7 +68,7 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         marginTop: 16,
-        backgroundColor: '#F0F0F0',
+        backgroundColor: '#FFFFFF',
         flexDirection: "row",
     },
     button: {

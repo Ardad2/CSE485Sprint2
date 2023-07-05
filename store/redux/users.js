@@ -46,13 +46,14 @@ const usersSlice = createSlice({
                 memo: action.payload.memo,
                 date: action.payload.date,
                 type: action.payload.type,
-            })
+            });
         },
         
         incrementBehavior: (state, action) => {
             
 
             var index = 0;
+            var behaviorIndex = 1;
 
             for (var i = 0; i < state.users.length ; i++)
             {                
@@ -61,8 +62,16 @@ const usersSlice = createSlice({
                 }
             }
 
+            for (var i = 0; i < state.users[index].behaviors.length ; i++)
+            {                
+                if (state.users[index].behaviors.name == (action.payload.behavioeName)) {
+                    behaviorIndex = i;
+                }
+            }
 
-            state.users[index].behaviors[action.payload.behaviorId].count++;
+
+
+            state.users[index].behaviors[behaviorIndex].count++;
 
 
         },
@@ -72,5 +81,8 @@ const usersSlice = createSlice({
 export const addUser = usersSlice.actions.addUser;
 export const removeUser = usersSlice.actions.removeUser;
 export const addUserBehavior = usersSlice.actions.addBehavior;
+export const incrementBehavior = usersSlice.actions.incrementBehavior;
+
+
 export default usersSlice.reducer;
 
