@@ -4,16 +4,20 @@ import { useNavigation } from '@react-navigation/native';
 
 function BehaviorDetailScreen( {route, navigation} )
 {
-    const child = route.params.child;
-    const text = route.params.text;
+    const id = route.params.id;
+    const name = route.params.name;
+    const icon = route.params.icon;
+    const count = route.params.count;
+    const goalCount = route.params.goalCount;
+    const memo = route.params.memo;
     const date = route.params.date;
-    const icon = route.params.icon
+    const type = route.params.type;
 
     return (
         <View> 
-        <Text>{text}</Text>
+        <Text>{name}</Text>
         <Text>{date}</Text>
-        <Text>{icon}</Text>
+        <Text>{count} / {goalCount}</Text>
         </View>
     )
 }

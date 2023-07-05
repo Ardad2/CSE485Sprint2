@@ -62,8 +62,8 @@ const behaviorList = useSelector( (state) => state.users.users[0].behaviors);
     } );
   }
 
-  function pressHandler(text, date, icon) {
-    navigation.navigate("BehaviorDetailScreen", { child : "Hello", text: text, date: date, icon: icon});
+  function pressHandler(id, name, icon, count, goalCount, memo, date, type) {
+    navigation.navigate("BehaviorDetailScreen", { id: id, name: name, icon: icon, count: count, goalCount: goalCount, memo: memo, date: date, type: type});
   }
 
   return (
