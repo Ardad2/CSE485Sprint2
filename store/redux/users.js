@@ -48,6 +48,24 @@ const usersSlice = createSlice({
                 type: action.payload.type,
             })
         },
+        
+        incrementBehavior: (state, action) => {
+            
+
+            var index = 0;
+
+            for (var i = 0; i < state.users.length ; i++)
+            {                
+                if (state.users[i].username == (action.payload.username)) {
+                    index = i;
+                }
+            }
+
+
+            state.users[index].behaviors[action.payload.behaviorId].count++;
+
+
+        },
     }
 });
 
