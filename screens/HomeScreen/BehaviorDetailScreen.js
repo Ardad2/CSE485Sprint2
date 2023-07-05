@@ -9,6 +9,18 @@ function BehaviorDetailScreen( {route, navigation} )
 
     const dispatch = useDispatch();
 
+    const behaviorList = useSelector( (state) => state.users.users[0].behaviors);
+
+    var behaviorIndex = 0;
+
+    for (var i = 0; i < behaviorList.length ; i++)
+    {                
+        if (behaviorList[i].name == route.params.name) {
+            behaviorIndex = i;
+        }
+    }
+
+
 
     const id = route.params.id;
     const name = route.params.name;
@@ -39,14 +51,14 @@ function BehaviorDetailScreen( {route, navigation} )
 
     return (
         <View> 
-        <Text>{name}</Text>
-        <Text>{date}</Text>
+        <Text>{behaviorList[behaviorIndex].name}</Text>
+        <Text>{behaviorList[behaviorIndex].date}</Text>
 
         <View style={styles.buttonContainer}>
              <View style={styles.button} >
                 <Button title="+" onPress={incrementGoalCount} color="black"/>
             </View>
-            <Text>{count} / {goalCount}</Text>
+            <Text>{behaviorList[behaviorIndex].count} / {behaviorList[behaviorIndex].goalCount}</Text>
             <View style={styles.button} >
                 <Button title="-" onPress={decrementGoalCount} color="black"/>
             </View>

@@ -53,7 +53,7 @@ const usersSlice = createSlice({
             
 
             var index = 0;
-            var behaviorIndex = 1;
+            var behaviorIndex = 0;
 
             for (var i = 0; i < state.users.length ; i++)
             {                
@@ -64,7 +64,7 @@ const usersSlice = createSlice({
 
             for (var i = 0; i < state.users[index].behaviors.length ; i++)
             {                
-                if (state.users[index].behaviors.name == (action.payload.behavioeName)) {
+                if (state.users[index].behaviors.name == (action.payload.behaviorName)) {
                     behaviorIndex = i;
                 }
             }
@@ -80,7 +80,7 @@ const usersSlice = createSlice({
             
 
             var index = 0;
-            var behaviorIndex = 1;
+            var behaviorIndex = 0;
 
             for (var i = 0; i < state.users.length ; i++)
             {                
@@ -91,7 +91,7 @@ const usersSlice = createSlice({
 
             for (var i = 0; i < state.users[index].behaviors.length ; i++)
             {                
-                if (state.users[index].behaviors.name == (action.payload.behavioeName)) {
+                if (state.users[index].behaviors.name == (action.payload.behaviorName)) {
                     behaviorIndex = i;
                 }
             }
