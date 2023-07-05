@@ -97,7 +97,7 @@ const usersSlice = createSlice({
             }
 
 
-            if (state.users[index].behaviors[behaviorIndex].count >= 0)
+            if (state.users[index].behaviors[behaviorIndex].count > 0)
             {
             state.users[index].behaviors[behaviorIndex].count--;
             }
