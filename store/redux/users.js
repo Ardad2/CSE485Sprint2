@@ -75,6 +75,35 @@ const usersSlice = createSlice({
 
 
         },
+
+        decrementBehavior: (state, action) => {
+            
+
+            var index = 0;
+            var behaviorIndex = 1;
+
+            for (var i = 0; i < state.users.length ; i++)
+            {                
+                if (state.users[i].username == (action.payload.username)) {
+                    index = i;
+                }
+            }
+
+            for (var i = 0; i < state.users[index].behaviors.length ; i++)
+            {                
+                if (state.users[index].behaviors.name == (action.payload.behavioeName)) {
+                    behaviorIndex = i;
+                }
+            }
+
+
+            if (state.users[index].behaviors[behaviorIndex].count >= 0)
+            {
+            state.users[index].behaviors[behaviorIndex].count--;
+            }
+
+
+        },
     }
 });
 
@@ -82,6 +111,7 @@ export const addUser = usersSlice.actions.addUser;
 export const removeUser = usersSlice.actions.removeUser;
 export const addUserBehavior = usersSlice.actions.addBehavior;
 export const incrementBehavior = usersSlice.actions.incrementBehavior;
+export const decrementBehavior = usersSlice.actions.decrementBehavior;
 
 
 export default usersSlice.reducer;

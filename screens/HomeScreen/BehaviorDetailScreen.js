@@ -1,7 +1,7 @@
 import {View, Text, Button, StyleSheet} from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import { useSelector, dispatch , useDispatch} from 'react-redux';
-import { incrementBehavior } from '../../store/redux/users';
+import { incrementBehavior, decrementBehavior } from '../../store/redux/users';
 
 
 function BehaviorDetailScreen( {route, navigation} )
@@ -20,7 +20,12 @@ function BehaviorDetailScreen( {route, navigation} )
     const type = route.params.type;
 
     function decrementGoalCount() {
-
+        dispatch(decrementBehavior(
+            {
+                username: "John",
+                behaviorName: name
+            }
+          ));
      }
 
      function incrementGoalCount() {
