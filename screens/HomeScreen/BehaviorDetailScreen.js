@@ -22,14 +22,8 @@ function BehaviorDetailScreen( {route, navigation} )
 
 
 
-    const id = route.params.id;
     const name = route.params.name;
-    const icon = route.params.icon;
-    const count = route.params.count;
-    const goalCount = route.params.goalCount;
-    const memo = route.params.memo;
-    const date = route.params.date;
-    const type = route.params.type;
+
 
     function decrementGoalCount() {
         dispatch(decrementBehavior(

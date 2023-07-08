@@ -65,8 +65,8 @@ const behaviorList = useSelector( (state) => state.users.users[0].behaviors);
   
 
 
-  function pressHandler(id, name, icon, count, goalCount, memo, date, type) {
-    navigation.navigate("BehaviorDetailScreen", { id: id, name: name, icon: icon, count: count, goalCount: goalCount, memo: memo, date: date, type: type});
+  function pressHandler(name) {
+    navigation.navigate("BehaviorDetailScreen", { name: name});
   }
 
   return (
