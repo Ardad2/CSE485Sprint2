@@ -2,20 +2,39 @@ import 'react-native-gesture-handler';
 import * as React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import { NavigationContainer } from '@react-navigation/native';
 import Home from './screens/HomeScreen/HomeScreen';
 import Settings from './Settings';
 import { Ionicons } from '@expo/vector-icons';
 
 import HomeStackScreen from './screens/HomeScreen/HomeStackScreen';
+import LoginScreen from './screens/AuthScreen/LoginScreen';
+import SignupScreen from './screens/AuthScreen/SignupScreen';
+
+import { Colors } from './constants/styles';
+
 
 import { Provider } from 'react-redux';
 import { store } from './store/redux/store';
 
+const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
 
 function AuthStack() {
-
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: { backgroundColor: Colors.primary500 },
+        headerTintColor: 'white',
+        contentStyle: { backgroundColor: Colors.primary100 },
+      }}
+    >
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Signup" component={SignupScreen} />
+    </Stack.Navigator>
+  );
 }
 
 function AuthenticatedStack() {
@@ -68,7 +87,7 @@ function AuthenticatedStack() {
 function Navigation() {
   return (
     <NavigationContainer> 
-      <AuthenticatedStack/>
+      <AuthStack/>
     </NavigationContainer>
   );
 }
