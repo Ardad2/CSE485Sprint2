@@ -94,7 +94,9 @@ function AuthForm({ isLogin, onSubmit, credentialsInvalid }) {
 export default AuthForm;
 
 const styles = StyleSheet.create({
+
   buttons: {
     marginTop: 12,
+    backgroundColor: "#F0F0F0",
   },
 });
