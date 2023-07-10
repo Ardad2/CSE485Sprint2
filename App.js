@@ -14,8 +14,7 @@ import LoginScreen from './screens/AuthScreen/LoginScreen';
 import SignupScreen from './screens/AuthScreen/SignupScreen';
 
 import { useSelector, dispatch , useDispatch} from 'react-redux';
-import { authenticateAuthTokens, logoutAuthTokens } from '../../store/redux/users';
-
+import { authenticateAuthTokens, logoutAuthTokens } from './store/redux/authTokens';
 
 import { Colors } from './constants/styles';
 

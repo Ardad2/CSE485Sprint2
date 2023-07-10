@@ -4,7 +4,7 @@ import AuthContent from '../../components/Auth/AuthContent';
 import LoadingOverlay from '../../components/ui/LoadingOverlay';
 import { login } from '../../util/auth';
 import { useSelector, dispatch , useDispatch} from 'react-redux';
-import { authenticateAuthTokens, logoutAuthTokens } from '../../store/redux/users';
+import { authenticateAuthTokens, logoutAuthTokens } from '../../store/redux/authTokens';
 
 
 function LoginScreen() {
@@ -27,6 +27,7 @@ function LoginScreen() {
       ));
 
     } catch (error) {
+      console.log(error);
       Alert.alert(
         'Authentication failed!',
         'Could not log you in. Please check your credentials or try again later!'

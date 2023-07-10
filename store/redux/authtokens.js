@@ -14,7 +14,7 @@ const authTokensSlice = createSlice({
 
     reducers: {
         authenticate: (state, action) => {
-            state.authTokens.data[0] = ({token: action.payload, isAuthenticated: "true", email: action.payload.email});
+            state.data[0] = ({token: action.payload.token, isAuthenticated: "true", email: action.payload.token.email});
         },
 
         logout: (state, action) => {
