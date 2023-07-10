@@ -2,7 +2,7 @@
 
 ## Product Backlogs
 
-1. Users are able to register and log into accounts.
+1. Users are able to register and log into accounts. (ALMOST DONE)
 2. Each user has a separate behavior data associated with their registered account. (DONE)
 3. Behavior items listed on the screen display their measurment values and are sorted according to their dates. (DONE)
 4. Whenever creating a new behavior, the user can specify the name, icon, description of the behavior, and also the measurments (DONE)
