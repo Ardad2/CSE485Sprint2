@@ -32,7 +32,7 @@ function AuthStack() {
       }}
     >
       <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name="Signup" component={SignupScreen} />
+      <Stack.Screen name="SignUp" component={SignupScreen} />
     </Stack.Navigator>
   );
 }

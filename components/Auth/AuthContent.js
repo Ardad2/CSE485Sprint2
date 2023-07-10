@@ -20,10 +20,10 @@ function AuthContent({ isLogin, onAuthenticate }) {
   function switchAuthModeHandler() {
     if (isLogin)
     {
-        navigation.navigate('SignUp');
+        navigation.replace('SignUp');
     }
     else {
-        navigation.navigate('Login')
+        navigation.replace('Login')
     }
   }
 
