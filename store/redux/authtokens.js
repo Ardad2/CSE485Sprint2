@@ -18,7 +18,7 @@ const authTokensSlice = createSlice({
         },
 
         logout: (state, action) => {
-            state.authTokens.data[0] = null;
+            state.sdata[0] = null;
 
         }
     }
