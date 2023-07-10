@@ -13,6 +13,10 @@ import HomeStackScreen from './screens/HomeScreen/HomeStackScreen';
 import LoginScreen from './screens/AuthScreen/LoginScreen';
 import SignupScreen from './screens/AuthScreen/SignupScreen';
 
+import { useSelector, dispatch , useDispatch} from 'react-redux';
+import { authenticateAuthTokens, logoutAuthTokens } from '../../store/redux/users';
+
+
 import { Colors } from './constants/styles';
 
 
@@ -85,9 +89,16 @@ function AuthenticatedStack() {
 }
 
 function Navigation() {
+
+  const dispatch = useDispatch();
+
+  const authToken = useSelector( (state) => state.authTokens.data[0]); 
+
+
   return (
     <NavigationContainer> 
-      <AuthStack/>
+      {!authToken.isAuthenticated && <AuthStack />}
+      {authToken.isAuthenticated && <AuthenticatedStack />}
     </NavigationContainer>
   );
 }

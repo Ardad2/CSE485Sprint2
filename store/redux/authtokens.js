@@ -14,7 +14,7 @@ const authTokensSlice = createSlice({
 
     reducers: {
         authenticate: (state, action) => {
-            state.authTokens.data[0] = ({token: action.payload.token, isAuthenticated: action.payload.isAuthenticated, email: action.payload.isAuthenticated});
+            state.authTokens.data[0] = ({token: action.payload, isAuthenticated: "true", email: action.payload.email});
         },
 
         logout: (state, action) => {
@@ -24,7 +24,7 @@ const authTokensSlice = createSlice({
     }
 });
 
-export const addAuthTokens = authTokensSlice.actions.addAuthToken;
-export const removeAuthTokens = authTokensSlice.actions.removeAuthToken;
+export const authenticateAuthTokens = authTokensSlice.actions.authenticate;
+export const logoutAuthTokens = authTokensSlice.actions.logout;
 export default authTokensSlice.reducer;
 
