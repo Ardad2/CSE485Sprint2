@@ -3,15 +3,22 @@ import { createSlice } from '@reduxjs/toolkit';
 const authTokensSlice = createSlice({
     name: 'authTokens',
     initialState: {
-        authTokens: [],   
+        data: [
+            {
+                token: '',
+                isAuthenticated: false,
+                email: ''
+            }
+        ],   
     },
 
     reducers: {
-        addAuthToken: (state, action) => {
-            state.authTokens.push(action.payload);
+        authenticate: (state, action) => {
+            state.authTokens.data[0] = ({token: action.payload.token, isAuthenticated: action.payload.isAuthenticated, email: action.payload.isAuthenticated});
         },
-        removeAuthToken: (state, action) => {
-            state.authTokens.splice(state.authTokens.indexOf(action.payload.id), 1);
+
+        logout: (state, action) => {
+            state.authTokens.data[0] = null;
 
         }
     }
