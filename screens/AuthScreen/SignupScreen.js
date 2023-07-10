@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import AuthContent from '../../components/Auth/AuthContent';
 import LoadingOverlay from '../../components/ui/LoadingOverlay';
-import { createUser } from '../util/auth';
+import { createUser } from '../../util/auth';
 
 
 function SignupScreen() {
