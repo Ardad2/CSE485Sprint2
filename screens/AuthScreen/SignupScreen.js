@@ -4,7 +4,7 @@ import LoadingOverlay from '../../components/ui/LoadingOverlay';
 import { createUser } from '../../util/auth';
 import { Alert } from 'react-native';
 import { useSelector, dispatch , useDispatch} from 'react-redux';
-import { authenticateAuthTokens, logoutAuthTokens } from '../../store/redux/users';
+import { authenticateAuthTokens, logoutAuthTokens } from '../../store/redux/authTokens';
 
 
 function SignupScreen() {
@@ -18,13 +18,17 @@ function SignupScreen() {
   async function signupHandler({ email, password }) {
     setIsAuthenticating(true);
     try {
-      const token = await login(email, password);
+      const data = await login(email, password);
+      
+      console.log(data.idToken);
       dispatch(authenticateAuthTokens(
         {
-          token: token
+          token: data.idToken,
+          email: data.email
         }
       ));
-    } catch (error) {
+
+    }catch (error) {
       Alert.alert(
         'Authentication failed',
         'Could not create user, please check your input and try again later.'

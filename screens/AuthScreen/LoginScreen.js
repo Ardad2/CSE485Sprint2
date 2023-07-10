@@ -9,20 +9,23 @@ import { authenticateAuthTokens, logoutAuthTokens } from '../../store/redux/auth
 
 function LoginScreen() {
 
-  const dispatch = useDispatch();
 
   const authToken = useSelector( (state) => state.authTokens.data[0]); 
 
+  const dispatch = useDispatch();
 
   const [isAuthenticating, setIsAuthenticating] = useState(false);
 
   async function loginHandler({ email, password }) {
     setIsAuthenticating(true);
     try {
-      const token = await login(email, password);
+      const data = await login(email, password);
+      
+      console.log(data.idToken);
       dispatch(authenticateAuthTokens(
         {
-          token: token
+          token: data.idToken,
+          email: data.email
         }
       ));
 

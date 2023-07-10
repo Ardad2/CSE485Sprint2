@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { useSelector, dispatch } from 'react-redux';
+import { useSelector, dispatch, useDispatch } from 'react-redux';
 
 import { 
   StyleSheet,  
@@ -17,11 +17,18 @@ import IconButton from '../../components/IconButton';
 import BehaviorDetailScreen from './BehaviorDetailScreen';
 import BehaviorFormScreen from './BehaviorFormScreen';
 
+import { authenticateAuthTokens, logoutAuthTokens } from '../../store/redux/authTokens';
+
+
 const HomeStack = createStackNavigator();
 
 export default function HomeScreen({navigation}) {
 
 //  const behaviorList = useSelector((state) => state.behaviors.behaviors);
+const dispatch = useDispatch();
+
+const authToken = useSelector( (state) => state.authTokens.data[0]); 
+
 const behaviorList = useSelector( (state) => state.users.users[0].behaviors);
 
 
@@ -79,7 +86,7 @@ const behaviorList = useSelector( (state) => state.users.users[0].behaviors);
      onCancel={endAddBehaviorHandler}
      />
      <View> 
-       <Text style={styles.headingText}>Welcome back John! What did you do today?</Text>
+       <Text style={styles.headingText}>Welcome back {authToken.email} What did you do today?</Text>
      </View>
 
      <View style={styles.plusButton}>  
