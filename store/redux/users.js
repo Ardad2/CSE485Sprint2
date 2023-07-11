@@ -28,7 +28,30 @@ const usersSlice = createSlice({
 
             if (exists == false)
             {
-            state.users.push(action.payload);
+
+
+                var newId = 0;
+
+                if (state.users.length > 0)
+                {
+
+                for (var i = 0; i < state.users.length; i++)
+                {
+                    newId = state.users[i].id;
+                }
+
+                newId = newId + 1;
+            }
+
+            state.users.push({
+                id: newId,
+                username: action.payload.username,
+                behaviors: [
+    
+                ]
+            });
+
+
             }
 
 

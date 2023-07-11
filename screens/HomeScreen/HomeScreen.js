@@ -31,6 +31,10 @@ const authToken = useSelector( (state) => state.authTokens.data[0]);
 
 const behaviorList = useSelector( (state) => state.users.users[0].behaviors);
 
+const userList = useSelector( (state) => state.users.users);
+const currUser = userList.filter(user => user.username == authToken.email);
+const behaviorList = currUser[0].behaviors;
+
 
   const [ date, setDate ] = useState(null);
 

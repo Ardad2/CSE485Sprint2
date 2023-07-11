@@ -5,6 +5,8 @@ import LoadingOverlay from '../../components/ui/LoadingOverlay';
 import { login } from '../../util/auth';
 import { useSelector, dispatch , useDispatch} from 'react-redux';
 import { authenticateAuthTokens, logoutAuthTokens } from '../../store/redux/authTokens';
+import { addUser } from '../../store/redux/users';
+
 
 
 function LoginScreen() {
@@ -22,12 +24,24 @@ function LoginScreen() {
       const data = await login(email, password);
       
       console.log(data.idToken);
+
+      dispatch(addUser(
+        {
+          username: data.email,
+        }
+      ));
+       
+      
       dispatch(authenticateAuthTokens(
         {
           token: data.idToken,
           email: data.email
         }
       ));
+
+
+
+
 
     } catch (error) {
       console.log(error);
