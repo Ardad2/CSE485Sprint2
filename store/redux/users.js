@@ -49,8 +49,6 @@ const usersSlice = createSlice({
                 id: newId,
                 username: action.payload.username,
                 behaviors: [
-                    {
-                }
                 ]
             });
         
