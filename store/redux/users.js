@@ -16,7 +16,20 @@ const usersSlice = createSlice({
     reducers: {
         addUser: (state, action) => {
 
+            var exists = false;
+
+            for (var i = 0; i < state.users.length; i++)
+            {
+                if (state.users[i].username == (action.payload.username))
+                {
+                    exists = true;
+                }
+            }
+
+            if (exists == false)
+            {
             state.users.push(action.payload);
+            }
 
 
         },
