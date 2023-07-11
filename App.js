@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { NavigationContainer } from '@react-navigation/native';
 import Home from './screens/HomeScreen/HomeScreen';
-import Settings from './Settings';
+import Settings from './screens/Settings';
 import { Ionicons } from '@expo/vector-icons';
 
 import HomeStackScreen from './screens/HomeScreen/HomeStackScreen';
