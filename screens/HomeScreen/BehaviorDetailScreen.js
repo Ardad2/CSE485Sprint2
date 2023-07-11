@@ -9,7 +9,13 @@ function BehaviorDetailScreen( {route, navigation} )
 
     const dispatch = useDispatch();
 
-    const behaviorList = useSelector( (state) => state.users.users[0].behaviors);
+    const authToken = useSelector( (state) => state.authTokens.data[0]); 
+
+    //const behaviorList = useSelector( (state) => state.users.users[0].behaviors);
+    
+    const userList = useSelector( (state) => state.users.users);
+    const currUser = userList.filter(user => user.username == authToken.email);
+    const behaviorList = currUser[0].behaviors;
 
     var behaviorIndex = 0;
 
@@ -28,7 +34,7 @@ function BehaviorDetailScreen( {route, navigation} )
     function decrementGoalCount() {
         dispatch(decrementBehavior(
             {
-                username: "John",
+                username: authToken.email,
                 behaviorName: name
             }
           ));
@@ -37,7 +43,7 @@ function BehaviorDetailScreen( {route, navigation} )
      function incrementGoalCount() {
         dispatch(incrementBehavior(
             {
-                username: "John",
+                username: authToken.email,
                 behaviorName: name
             }
           ));
