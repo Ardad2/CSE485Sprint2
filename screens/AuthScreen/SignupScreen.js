@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import AuthContent from '../../components/Auth/AuthContent';
 import LoadingOverlay from '../../components/ui/LoadingOverlay';
-import { createUser } from '../../util/auth';
+import {createUser} from '../../util/auth';
 import { Alert } from 'react-native';
 import { useSelector, dispatch , useDispatch} from 'react-redux';
 import { authenticateAuthTokens, logoutAuthTokens } from '../../store/redux/authTokens';
@@ -18,7 +18,7 @@ function SignupScreen() {
   async function signupHandler({ email, password }) {
     setIsAuthenticating(true);
     try {
-      const data = await login(email, password);
+      const data = await createUser(email, password);
       
       console.log(data.idToken);
       dispatch(authenticateAuthTokens(
@@ -29,6 +29,7 @@ function SignupScreen() {
       ));
 
     }catch (error) {
+      console.log(error);
       Alert.alert(
         'Authentication failed',
         'Could not create user, please check your input and try again later.'
