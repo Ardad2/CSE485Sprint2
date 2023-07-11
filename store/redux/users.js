@@ -43,27 +43,17 @@ const usersSlice = createSlice({
                 newId = newId + 1;
             }
 
-            /*
 
-            For testing purposes push a behavior.
 
             state.users.push({
                 id: newId,
                 username: action.payload.username,
                 behaviors: [
                     {
-                    id: 1,
-                    name: "TEST",
-                    icon: "TEST",
-                    count: 0,
-                    goalCount: 30,
-                    memo: "TEST",
-                    date: "TEST",
-                    type: "TEST",
                 }
                 ]
             });
-            */
+        
 
 
             }
