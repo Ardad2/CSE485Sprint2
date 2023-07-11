@@ -43,6 +43,10 @@ const usersSlice = createSlice({
                 newId = newId + 1;
             }
 
+            /*
+
+            For testing purposes push a behavior.
+
             state.users.push({
                 id: newId,
                 username: action.payload.username,
@@ -59,6 +63,7 @@ const usersSlice = createSlice({
                 }
                 ]
             });
+            */
 
 
             }

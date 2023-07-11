@@ -23,6 +23,9 @@ export default function BehaviorFormScreen( {route, navigation} )
 
         const behaviorName = route.params.behaviorName;
 
+        const authToken = useSelector( (state) => state.authTokens.data[0]); 
+
+
     const [enteredName, setEnteredName] = useState(behaviorName);
     const [enteredIcon, setEnteredIcon] = useState('');
     const [enteredGoalCount, setEnteredGoalCount] = useState('');
@@ -67,8 +70,7 @@ export default function BehaviorFormScreen( {route, navigation} )
 
          dispatch(addUserBehavior(
           {
-            username: "John",
-            userId: 0,
+            username: authToken.email,
             id: Math.random().toString(),
             name: enteredName,
             icon: enteredIcon,
